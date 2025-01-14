@@ -1,0 +1,415 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% load icons %}
+  {% icon 'house' %}
+  {% icon 'auto' %}
+  {% icon 'plane' %}
+  {% icon 'gauge' %}
+  {% icon 'credit_card' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <div class="col">
+      <div class="row">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" style="color: black; margin-left: 15px;"><u style="color: blue;">Personal</u></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'business' %}" style="color: black;">Buisness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'commercial' %}" style="color: black;">Commercial</a>
+          </li>
+          <ul class="navbar-nav ms-auto flex-nowrap">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Schedule a meeting</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Customer service
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">See help options</a></li>
+              <li><a class="dropdown-item" href="#">Make a payment</a></li>
+              <li><a class="dropdown-item" href="#">Find ATM or branch</a></li>
+              <li><a class="dropdown-item" href="#">Report fraud</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Espanol</a> 
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-default btn-sm" style="margin-right: 50px;">
+              <span class="glyphicon glyphicon-search"></span> Search 
+            </button>
+          </li>
+        </ul>
+        </ul>
+      </div>
+      <div class="row">
+        <a class="navbar-brand" href="#" style="color: black;  margin-left: 6px;"><b>Town Square Banking</b></a>
+      </div>
+      <div class="row">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#" style="color: black; padding-right: 30px;" id="dropdownCheckingMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Checking</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownCheckingMenuLink">
+                <li><a class="dropdown-item" href="{% url 'choose_checking_account' %}">Choose a checking account</a></li>
+                <li><a class="dropdown-item" href="{% url 'debit_card_for_kids' %}">Debit card for kids</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownSavingsMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Savings & CDs</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownSavingsMenuLink">
+                <li><a class="dropdown-item" href="#">Choose a savings account</a></li>
+                <li><a class="dropdown-item" href="#">CDs</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownCardMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Credit cards</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownCardMenuLink">
+                <li><a class="dropdown-item" href="#">Explore credit cards</a></li>
+                <li><a class="dropdown-item" href="#">See if you're pre-approved</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item" href="#">Personal credit cards</a></li>
+                <li><a class="dropdown-item" href="#">Business credit cards</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownHomeLoansMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Home loans</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownHomeLoansMenuLink"> 
+                <li><a class="dropdown-item" href="#">Buy a home</a></li>
+                <li><a class="dropdown-item" href="#">Refinance your mortgage</a></li>
+                <li><a class="dropdown-item" href="#">Apply for a mortgage</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item" href="#">Access calculators and tools</a></li>
+                <li><a class="dropdown-item" href="#">See current rates</a></li>
+                <li><a class="dropdown-item" href="#">Manage account</a></li>
+                <li><a class="dropdown-item" href="#">Homebuying 101</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownAutoMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Auto</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownAutoMenuLink">
+                <li><a class="dropdown-item" href="#">Finance a car</a></li>
+                <li><a class="dropdown-item" href="#">Shop for a car</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item" href="#">Prequalify for financing</a></li>
+                <li><a class="dropdown-item" href="#">Calculate rates</a></li>
+                <li><a class="dropdown-item" href="#">Explore auto options</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownInvestingMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Investing</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownInvestingMenuLink">
+                <li><a class="dropdown-item" href="#">Explore investing</a></li>
+                <li><a class="dropdown-item" href="#">Work with our advisors</a></li>
+                <li><a class="dropdown-item" href="#">Invest on your own</a></li>
+                <li class="divider"></li>
+                <li><a class="dropdown-item" href="#">Wealth Plan</a></li>
+                <li><a class="dropdown-item" href="#">Plan your retirement</a></li>
+                <li><a class="dropdown-item" href="#">Education planning</a></li>
+                <li><a class="dropdown-item" href="#">Investing insights</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownEducationMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Education & goals</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEducationMenuLink">
+                <li><a class="dropdown-item" href="{% url 'education_center' %}">Education center</a></li>
+                <li><a class="dropdown-item" href="{% url 'credit_score' %}">Free credit score</a></li>
+                <li><a class="dropdown-item" href="{% url 'financial_goals' %}">Financial goals</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link dropdown-center" href="#" style="color: black;" id="dropdownTravelMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Travel</a>
+              <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownTravelMenuLink">
+                <li><a class="dropdown-item" href="{% url 'travel' %}">Travel</a></li>
+              </ul>
+            </li>
+                
+          </ul>     
+      </div>
+    </div>
+  </nav>
+  <img src="{% static 'wildwest_town.png' %}" class="card-img" alt="Wildwest meeting" style="height: 500px;">
+  <div class="card-img-overlay" style="margin-left: 100px; margin-top: 200px;">
+    <div class="row">
+      <div class="col" style="text-align:center;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 style="color: white;">Enjoy 500$</h1>
+        <br>
+        <h3 style="color: white;"><b>New Town Center checking folks</b></h3>
+          <p style="color: white;">Open a Town Center Total Checking account with qualifying activities</p>
+        <button>Open an account</button>
+        <br>
+        <br>
+      </div>
+      <div class="col">
+        <form action="/action_page.php" style="background-color: rgb(22, 19, 19); padding: 2em; margin-top: 50px; margin-right: 50px; color: white;">
+          <div class="mb-3 mt-3">
+            <h3>Welcome</h3>
+            <label for="email" class="form-label">Username:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="remember"> Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <a class="nav-link" href="#">Forgot username/password? ></a>
+          <a class="nav-link" href="#">Not Enrolled? Sign Up Now. ></a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col">
+  
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width:400px">
+      <img class="card-img-top" src="{% static 'wagon insurance.png' %}" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">Get prequalification results in seconds</h4>
+        <p class="card-text">Learn how much you can borrow with no impact on your credit score.</p>
+        <a href="#" class="btn btn-primary">Get prequalified</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width:400px">
+      <img class="card-img-top" src="{% static 'town_center_cash.png' %}" alt="Card image" style="width:100%">
+      <div class="card-body">
+        <h4 class="card-title">Earn a $150 bonus</h4>
+        <p class="card-text">Plus, earn unlimited 1.5% cash back or more on all purchases, including 3% on dining and drugstores
+           - <b>all with no annual fee.</b></p>
+        <a href="#" class="btn btn-primary">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100" style="width:400px">
+      <img class="card-img-top" src="{% static 'western store.png' %}" alt="Card image" style="width:100%;">
+      <div class="card-body">
+        <h4 class="card-title">Accept payments anytime, anywhere</h4>
+        <p class="card-text">Make sure you're prepared for every sale, wherever your customers want to pay. Process credit cards anywhere in the U.S.</p>
+        <a href="#" class="btn btn-primary">Learn more</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    
+  </div>
+</div>
+<div class="mt-4 p-5 bg-primary text-white rounded" style="width: 1300px; height: 500px; background:transparent !important; border-top: 3px solid gray ;border-bottom: 3px solid gray; align-content: center; margin: 3em">
+  <div class="row">
+    <div class="col">
+      <img src="{% static 'Town_square_travel.png' %}" class="img-fluid" alt="Wildwest" width="600px" height="200px" >
+    </div>
+    <div class="col">
+      <h1 style="color: black;"><b>Explore curated hotel guides</b></h1>
+      <p style="color: black;"> Start planning your next trip with hotels selected by Chase Travel editors, from spectacular palace hotels to honeymoon-worthy overwater bungalows.</p>
+  <a href="#" class="btn btn-primary" style="background-color: green;">Explore now</a>
+    </div>
+  </div>
+</div>
+<div class="mt-4 p-5 bg-primary text-white rounded" style="width: 1300px; height: 500px; background:transparent !important; border-top: 3px solid gray ;border-bottom: 3px solid gray; align-content: center; margin: 3em">
+  <div class="row">
+    <div class="col">
+      <img src="{% static 'town_square_earn.png' %}" class="img-fluid" alt="Wildwest" width="600px" height="200px">
+    </div>
+    <div class="col">
+      <h1 style="color: black;"><b>Accept payments anytime, anywhere</b></h1>
+      <p style="color: black;">Get more ways to waive the Monthly Service Fee. For new buisness checking customers.</p>
+      <a href="#" class="btn btn-primary">Learn more</a>
+    </div>
+  </div>
+</div>
+<div class="mt-4 p-5 bg-primary text-white rounded" style="width: 1300px; height: 500px; background:transparent !important; border-top: 3px solid gray ;border-bottom: 3px solid gray; align-content: center; margin: 3em">
+  <div class="row">
+    <div class="col">
+      <img src="{% static 'town_square_enjoy.png' %}" class="img-fluid" alt="Wildwest" width="600px" height="200px">
+    </div>
+    <div class="col">
+      <h1 style="color: black;"><b>New Town Center checking customers</b></h1>
+      <p style="color: black;">Enjoy $300 when you open a Chase Secure Banking accoint with qualifying transactions.</p>
+      <a href="#" class="btn btn-primary" style="background-color: green;">Open an account</a>
+    </div>
+  </div>
+</div>
+<!-- 
+<div id="myCarousel" class="carousel slide" data-ride="carousel" height="400">
+  
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  
+  <div class="carousel-inner">
+    <div class="item active">
+      
+      
+      <i class="fa-solid fa-plane">Travel</i>
+      <i class="fa-solid fa-gauge">Metering</i>
+      <i class="fa-solid fa-credit-card">Credit Card</i>
+    </div>
+
+    <div class="item">
+        <i class="bi bi-airplane">Travel</i>
+        <i class="bi bi-piggy-bank">Savings</i>
+        <i class="bi bi-house-door">Home loans</i>
+    </div>
+
+    <div class="item">
+        <i class="bi bi-buildings">Commercial</i>
+        <i class="bi bi-credit-card">Credit cards</i>
+        <i class="bi bi-credit-card-2-front">Checking</i>
+    </div>
+  </div>
+
+  
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div> -->
+<div class="container" style="text-align: center;">
+  <h2>Follow Us
+    <a href="#" id="share-fb" class="sharer button" style="font-size: small;"><i class="fa fa-3x fa-facebook-square"></i></a>
+    <a href="#" id="share-tw" class="sharer button" style="font-size: small;"><i class="fa fa-3x fa-twitter-square"></i></a>
+    <a href="#" id="share-li" class="sharer button" style="font-size: small;"><i class="fa fa-3x fa-linkedin-square"></i></a>
+    <a href="#" id="share-gp" class="sharer button" style="font-size: small;"><i class="fa fa-3x fa-google-plus-square"></i></a>
+    <a href="#" id="share-em" class="sharer button" style="font-size: small;"><i class="fa fa-3x fa-envelope-square"></i></a>
+  </h2>
+  </div>
+  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      
+    </section>
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <h4 style="text-align: center;">We're here to help you manage your money today and tomorrow</h4>
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Company name
+            </h6>
+            <p>
+              Here you can use rows and columns to organize your footer content. Lorem ipsum
+              dolor sit amet, consectetur adipisicing elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+  {% block content %}
+  {% endblock %}
+</div>
+</body>
+</html>

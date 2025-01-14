@@ -1,0 +1,487 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html style="width: 1400px;">
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'custom.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="col">
+        <div class="row">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'bank' %}" style="color: black; margin-left: 15px;">Personal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: black; text-align: left;"><u style="color: blue;">Buisness</u></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'commercial' %}" style="color: black; text-align: left;">Commercial</a>
+            </li>
+            <ul class="navbar-nav ms-auto flex-nowrap">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Schedule a meeting</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Customer service
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">See help options</a></li>
+                  <li><a class="dropdown-item" href="#">Make a payment</a></li>
+                  <li><a class="dropdown-item" href="#">Find ATM or branch</a></li>
+                  <li><a class="dropdown-item" href="#">Report fraud</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Espanol</a> 
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn btn-default btn-sm" style="margin-right: 50px;">
+                  <span class="glyphicon glyphicon-search"></span> Search 
+                </button>
+              </li>
+            </ul>
+          </ul>
+        </div>
+        <div class="row">
+          <a class="navbar-brand" href="#" style="color: black; margin-left: 6px;"><b>Town Square Banking</b></a>
+        </div>
+        <div class="row">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" style="color: black; padding-right: 30px;" id="dropdownCheckingMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Checking</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownCheckingMenuLink">
+                  <li><a class="dropdown-item" href="{% url 'choose_checking_account' %}">Choose a checking account</a></li>
+                  <li><a class="dropdown-item" href="{% url 'debit_card_for_kids' %}">Debit card for kids</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownSavingsMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Savings & CDs</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownSavingsMenuLink">
+                  <li><a class="dropdown-item" href="#">Choose a savings account</a></li>
+                  <li><a class="dropdown-item" href="#">CDs</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownCardMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Credit cards</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownCardMenuLink">
+                  <li><a class="dropdown-item" href="#">Explore credit cards</a></li>
+                  <li><a class="dropdown-item" href="#">See if you're pre-approved</a></li>
+                  <li class="divider"></li>
+                  <li><a class="dropdown-item" href="#">Personal credit cards</a></li>
+                  <li><a class="dropdown-item" href="#">Business credit cards</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownHomeLoansMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Home loans</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownHomeLoansMenuLink"> 
+                  <li><a class="dropdown-item" href="#">Buy a home</a></li>
+                  <li><a class="dropdown-item" href="#">Refinance your mortgage</a></li>
+                  <li><a class="dropdown-item" href="#">Apply for a mortgage</a></li>
+                  <li class="divider"></li>
+                  <li><a class="dropdown-item" href="#">Access calculators and tools</a></li>
+                  <li><a class="dropdown-item" href="#">See current rates</a></li>
+                  <li><a class="dropdown-item" href="#">Manage account</a></li>
+                  <li><a class="dropdown-item" href="#">Homebuying 101</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownAutoMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Auto</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownAutoMenuLink">
+                  <li><a class="dropdown-item" href="#">Finance a car</a></li>
+                  <li><a class="dropdown-item" href="#">Shop for a car</a></li>
+                  <li class="divider"></li>
+                  <li><a class="dropdown-item" href="#">Prequalify for financing</a></li>
+                  <li><a class="dropdown-item" href="#">Calculate rates</a></li>
+                  <li><a class="dropdown-item" href="#">Explore auto options</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownInvestingMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Investing</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownInvestingMenuLink">
+                  <li><a class="dropdown-item" href="#">Explore investing</a></li>
+                  <li><a class="dropdown-item" href="#">Work with our advisors</a></li>
+                  <li><a class="dropdown-item" href="#">Invest on your own</a></li>
+                  <li class="divider"></li>
+                  <li><a class="dropdown-item" href="#">Wealth Plan</a></li>
+                  <li><a class="dropdown-item" href="#">Plan your retirement</a></li>
+                  <li><a class="dropdown-item" href="#">Education planning</a></li>
+                  <li><a class="dropdown-item" href="#">Investing insights</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black; padding-right: 30px;" id="dropdownEducationMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Education & goals</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownEducationMenuLink">
+                  <li><a class="dropdown-item" href="{% url 'education_center' %}">Education center</a></li>
+                  <li><a class="dropdown-item" href="{% url 'credit_score' %}">Free credit score</a></li>
+                  <li><a class="dropdown-item" href="{% url 'financial_goals' %}">Financial goals</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link dropdown-center" href="#" style="color: black;" id="dropdownTravelMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Travel</a>
+                <ul class="dropdown-menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownTravelMenuLink">
+                  <li><a class="dropdown-item" href="{% url 'travel' %}">Travel</a></li>
+                </ul>
+              </li>
+                  
+            </ul>     
+        </div>
+      </div>
+    </div>
+  </nav>
+        
+    
+    <div style="background-color: blue; width: 1600px;">
+      <div class="row">
+        <div class="col">
+          <img src="{% static 'Old_western_barber.png' %}" class="img-fluid" alt="Wildwest" width="200px" height="500px" style="z-index: 2; margin-left: 100px; margin-top: 50px;">
+        </div>
+        <div class="col">
+         
+        </div>
+        <div class="col">
+          <h3 style="color: white;"><b>Town Square Banking for Business</b></h3>
+          <p style="color: white;">From banking to payment acceptance to credit cards and local support, we offer flexible solutions to help you go far.</p>
+          <img src="{% static 'visa gold card.png' %}" class="img-fluid" alt="Wildwest" width="200px" height="150px" >
+        
+        </div>
+        <div class="col">
+          <br>
+          <br>
+          <br>
+          <br>
+          <img src="{% static 'earn_300_business.png' %}" class="img-fluid" alt="Wildwest" width="200px" height="150px">
+        </div>
+      </div>  
+    </div>
+    <div style="background-color: white;">
+    <div class="row">
+      <div class="col">
+
+      </div>
+      <div class="col">
+
+      </div>
+      <div class="col">
+        <p>PAYMENT SOLUTIONS</p>
+          <p><b>Accept payments anytime, anywhere</b></p>
+          <br>
+          <p>Make sure you're prepared for evey sale, whatever your customers want to pay. Process credit cards anywhere in the U.S.</p>
+          <br>
+          <button>Learn More</button>
+      </div>
+      <div class="col">
+          <p>TOWN CENTER BUSINESS COMPLETE CHECKING</p>
+          <p><b>Get a $300 bonus for your new account</b></p>
+          <br>
+          <p>When you open a Business Complete Checking account with qualifying activities. For new business checking customers only.</p>
+          <br>
+          <button>Open now</button>
+      </div>
+    </div>
+    
+    </div>
+    <div class="mt-4 p-5 bg-primary text-white rounded" style="width: 1600px; height: 350px; background:blue !important;">
+      <div class="row">
+        <div class="col-sm-4">
+          <img src="{% static 'Old_western_buisness_owner.png' %}" class="img-fluid" alt="Wildwest" width="400px" height="120px">
+        </div>
+        <div class="col-sm-8">
+          <h2 style="color: black;"><b>Small businesses are what make our communities so special. To celebrate Hispanic Heritage Month, we're spotlighting some of our Hispanic- and Latino- owned small business customers who are making a big impact.</b></h2>
+          <p style="color: black;"><u><a>Celebrate with us</a></u></p>
+          <button style="color: black;">Learn More</button>
+        </div>
+      
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 p-5 bg-light text-white rounded" style="width: 1600px; height: 600px; border-bottom: 1px dashed grey">
+      <div class="row">
+
+
+        <div class="col-sm-4">
+          <img src="{% static 'pointing_down.png' %}" class="img-fluid" alt="Wildwest" width="150px" height="80px" style="float: right;">
+        </div>
+        <div class="col-sm-4">
+          
+          <h1 style="color: black;"><b>Let us help you find what you're looking for</b></h1>
+          <br>
+          <label for="for">I am looking for</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Choose an option</option>
+            <option value="guidance" selected>Guidance and tools</option>
+            <option value="checking_savings_account">A checking or savings account</option>
+            <option value="credit_card">A credit card</option>
+            <option value="payment_processing">Payment processing and merchant services</option>
+            <option value="loan_or_line">Loan or line of credit</option>
+            <option value="business_services">Business services</option>
+            <option value="product_support">Product support</option>
+            <option value="banking_solutions">Banking solutions for high-growth startups</option>
+          
+          </select>
+          
+          <br>
+          <br>
+          <label for="for">to</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Choose an option</option>
+            <option value="guidance">Start my business</option>
+            <option value="help_grow_business">Help me run and grow my business</option>
+            <option value="provide_solutions">Provide solutions for my employees</option>
+            <option value="help_with_new_account">Help with my new account</option>
+          </select>
+          <br>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary" style="background-color: grey;">Show me my solutions</a>
+        </div>
+        <div class="col-sm-4">
+          <img src="{% static 'cowboy_lasso_money.png' %}" class="img-fluid" alt="Wildwest" width="550px" height="380px" style="float: left;">
+        </div>
+      </row>
+      
+    </div>
+    <div class="mt-4 p-5 bg-light text-white rounded" style="width: 1570px; height:900px; text-align: center;">
+      <p style="color:black; text-align: center;">Recommendations will show up here once your selections are made. Some or all documents, services, web pages or correspondence may be avaible in English only.</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1 style="color: black; text-align: center;"><b>Or get started with some of our most popular business</b></h1>
+      <h1 style="color: black; text-align: center;"><b>banking offerings solutions and resources</b></h1>
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width:250px; height: 500px;">
+            <img class="card-img-top" src="{% static 'easy_manage.png' %}" alt="Card image" style="width:100%;height: 670px">
+            <div class="card-body">
+              <p style="color: black;">TOWN SQUARE PERFORMANCE BUSINESS CHECKING®</p>
+              <h4 class="card-title" style="color: black;">Easily manage your greater cash flow needs</h4>
+              <p class="card-text" style="color: black;">Town Square Performance Business Checking® offers no charge on your two most expensive outgoing wires and many other benefits.</p>
+              <a href="#" class="btn btn-primary" style="color: white; margin-bottom: 10px;">Continue</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width:250px; height: 500px;">
+            <img class="card-img-top" src="{% static 'Old_western_buisness_design.png' %}" alt="Card image" style="width:100%; height: 700px;">
+            <div class="card-body">
+              <p style="color: black;">DESIGNED FOR YOUR BUSINESS</p>
+              <h4 class="card-title" style="color: black;">Business checking accounts</h4>
+              <p class="card-text" style="color: black;">Whatever your business’s size or industry, we offer checking solutions that are built to meet your needs, support your vision and keep you moving forward.</p>
+              <a href="#" class="btn btn-primary" style="margin-bottom: 10px;">Continue</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width:250px; height: 500px;">
+            <img class="card-img-top" src="{% static 'Old_western_star.png' %}" alt="Card image" style="width:100%; height: 700px;">
+            <div class="card-body">
+              <p style="color: black;">INK BUSINESS PREFERRED®</p>
+              <h4 class="card-title" style="color: black;">90,000 bonus points</h4>
+              <p class="card-text" style="color: black;">Plus, earn 3x points on eligible shipping and select business categories with Ink Business Preferred®. Terms apply.</p>
+              <br>
+              <br>
+              <a href="#" class="btn btn-primary" style="margin-bottom: 10px;">Continue</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width:250px; height: 500px;">
+            <img class="card-img-top" src="{% static 'Old_western_company_growth.png' %}" alt="Card image" style="width:100%;height: 670px">
+            <div class="card-body">
+              <p style="color: black;"> INNOVATION ECONOMY BANKING</p>
+              <h4 class="card-title" style="color: black;">From seed to IPO, grow without limits</h4>
+              <p class="card-text" style="color: black;">Our financial solutions for early-stage startups, venture-backed and high-growth companies can grow with you at every stage.</p>
+              <a href="#" class="btn btn-primary" style="margin-bottom: 10px;">Get in touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h1 style="color: black;">At Town Square, we're committed to giving business owners the support they need to help them achieve their ambitious goals.</h1>
+      </div>
+      <div class="col" style="border-left: 3px solid blue;">
+        <h3 style="color: black;"><b>Business Checking</b></h3>
+        <br>
+        <p style="color: black;">Whatever your business size or industry, we offer checking solutions that are built to meet your needs, support your visions, and keep you moving forward.</p>
+        <br>
+        <br>
+        <a style="color: black;"><u style="color: blue;">Continue -></u></a>
+        <h3 style="color: black;"><b>Payment Solutions</b></h3>
+        <br>
+        <p style="color: black;">A complete suite of merchant services to accept credit cards, made simple and secure.</p>
+        <br>
+        <br>
+        <a style="color: black;"><u style="color: blue;">Continue -></u></a>
+        <h3 style="color: black;"><b>Business Credit Cards</b></h3>
+        <br>
+        <p style="color: black;">Find the best business credit card for you. Get rewarded on expenses with new cardmember bonus offers, and by earning cash back rewards, airline miles, or credit card reward points on all your business purchases.</p>
+        <br>
+        <br>
+        <a style="color: black;"><u style="color: blue;">Continue -></u></a>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="jumbotron" style="background-color: rgb(14, 14, 118); color: white; height: 450px; width: 1600px;">
+      <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+          <h3><b>Get the account with higher-level advantages</b></h3>
+          <p>Town Square Platinum Business Checking can meet your greater cash management needs with benefits like our concierge service.</p>
+          <br>
+          <br>
+          <p>Get all the benefits and cost savings today.</p>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary">Continue</a>
+        </div>
+        <div class="col">
+          <br>
+          <br>
+          <br>
+          <img src="{% static 'western_saloon.png' %}" class="img-fluid" alt="Wildwest" width="550px" height="380px" style="float: center;">
+        </div>
+        <div class="col">
+          <div class="dashed-circle" style="float: right; color: white;"></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="color: black; text-align: center;"><b>See how business owners are benefiting from Town Square for Business</b></h3>
+
+    <div class="row">
+      <div class="col">
+        <img src="{% static 'wild_west_business_story.png' %}" class="img-fluid" alt="Wildwest" width="550px" height="380px" style="float: right; margin-right: 10px;">
+      </div>
+      <div class="col">
+        <br>
+        <br>
+        <br>
+        <p style="color: black;">Town square for Business customers</p>
+
+        <h2 style="color: black;"><b>"The flexible tools and resources Town Square for Business provides has helped us grow our business more efficiently and quickly."</b></h2>
+        <br>
+        <br>
+        <br>
+        <p style="color: black;">Kristen Maxwell, John Cornwood, and Chris Parker, Co-founders, OCOA</p>
+        <br>
+        <p style="color: black;"><small>Real business owners compensated</small></p>
+        <br>
+        <a style="color: black;"><u style="color: blue;">Read the story -></u></a>
+      </div>
+    </div>
+    
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        
+      </section>
+    
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <h4 style="text-align: center;">We're here to help you manage your money today and tomorrow</h4>
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <i class="fas fa-gem me-3"></i>Company name
+              </h6>
+              <p>
+                Here you can use rows and columns to organize your footer content. Lorem ipsum
+                dolor sit amet, consectetur adipisicing elit.
+              </p>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Products
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Angular</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">React</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Vue</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Laravel</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Useful links
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Pricing</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Settings</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Orders</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Help</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+    
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                info@example.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+   
+
+</body>
