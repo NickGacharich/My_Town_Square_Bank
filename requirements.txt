@@ -48,8 +48,6 @@ pyviz-comms==2.3.0
 setuptools==75.8.0
 sqlparse==0.5.1
 stack-data==0.2.0
-statsmodels==0.14.0
-sympy==1.11.1
 tables==3.8.0
 text-unidecode==1.3
 textdistance==4.2.1
