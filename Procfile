@@ -1,0 +1,1 @@
+web: gunicorn my_town_square_bank.wsgi --log-file -
